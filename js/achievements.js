@@ -61,13 +61,14 @@ const achievementSystem = {
   ],
 
   getXP() {
-    return Number(localStorage.getItem("footballLabXP")) || 0;
+    return Number(
+      localStorage.getItem("footballLabXP")
+    ) || 0;
   },
 
   addXP(amount) {
 
     const currentXP = this.getXP();
-
     const newXP = currentXP + amount;
 
     localStorage.setItem(
