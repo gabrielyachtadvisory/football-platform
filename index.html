@@ -3,8 +3,6 @@
 
 <head>
 
-  <link rel="stylesheet" href="css/style.css">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,7 +11,10 @@
 
   <title>The Football Lab | Train. Understand. Become.</title>
 
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -51,11 +52,15 @@
       font: inherit;
     }
 
+    /* =========================
+       NAVIGATION
+    ========================= */
+
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7,16,12,0.92);
+      background: rgba(7,16,12,0.94);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -73,7 +78,6 @@
     .logo {
       font-size: 21px;
       font-weight: 900;
-      letter-spacing: -0.5px;
     }
 
     .logo span {
@@ -126,15 +130,28 @@
       background: var(--surface-2);
     }
 
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
       min-height: 680px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
+
       background:
-        radial-gradient(circle at 75% 30%, rgba(61,180,81,0.18), transparent 28%),
-        radial-gradient(circle at 20% 80%, rgba(61,180,81,0.09), transparent 30%),
+        radial-gradient(
+          circle at 75% 30%,
+          rgba(61,180,81,0.18),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 20% 80%,
+          rgba(61,180,81,0.09),
+          transparent 30%
+        ),
         var(--bg);
     }
 
@@ -184,6 +201,10 @@
       flex-wrap: wrap;
     }
 
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
     section {
       padding: 85px 24px;
     }
@@ -215,6 +236,10 @@
       color: var(--muted);
       max-width: 650px;
     }
+
+    /* =========================
+       CARDS
+    ========================= */
 
     .feature-grid {
       display: grid;
@@ -250,6 +275,10 @@
       font-size: 14px;
     }
 
+    /* =========================
+       TRAINING PREVIEW
+    ========================= */
+
     .training-section {
       background: #09140e;
     }
@@ -264,9 +293,15 @@
       min-height: 360px;
       border-radius: 20px;
       padding: 35px;
+
       background:
-        radial-gradient(circle at 80% 20%, rgba(98,230,111,0.16), transparent 30%),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(98,230,111,0.16),
+          transparent 30%
+        ),
         var(--surface);
+
       border: 1px solid var(--border);
     }
 
@@ -284,6 +319,7 @@
     .training-item {
       display: flex;
       justify-content: space-between;
+      gap: 15px;
       padding: 13px 15px;
       border-radius: 10px;
       background: rgba(255,255,255,0.035);
@@ -318,6 +354,10 @@
       font-size: 14px;
     }
 
+    /* =========================
+       POSITIONS
+    ========================= */
+
     .position-grid {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
@@ -340,7 +380,10 @@
       border-color: rgba(98,230,111,0.3);
     }
 
-    .iq-grid,
+    /* =========================
+       NEWS
+    ========================= */
+
     .news-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -357,8 +400,13 @@
     .news-image {
       height: 180px;
       background:
-        linear-gradient(135deg, rgba(98,230,111,0.2), rgba(0,0,0,0.4)),
+        linear-gradient(
+          135deg,
+          rgba(98,230,111,0.2),
+          rgba(0,0,0,0.4)
+        ),
         #16251b;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -382,6 +430,10 @@
       color: var(--muted);
       font-size: 13px;
     }
+
+    /* =========================
+       ACHIEVEMENTS
+    ========================= */
 
     .achievement-grid {
       display: grid;
@@ -416,11 +468,20 @@
       margin-top: 5px;
     }
 
+    /* =========================
+       CTA
+    ========================= */
+
     .cta {
       padding: 100px 24px;
       text-align: center;
+
       background:
-        radial-gradient(circle, rgba(98,230,111,0.13), transparent 40%),
+        radial-gradient(
+          circle,
+          rgba(98,230,111,0.13),
+          transparent 40%
+        ),
         #09140e;
     }
 
@@ -434,6 +495,10 @@
       margin: auto auto 25px;
       color: var(--muted);
     }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       border-top: 1px solid var(--border);
@@ -451,135 +516,242 @@
       font-size: 13px;
     }
 
-    /* TRAINING APP */
+    /* ==================================================
+       TRAINING APPLICATION
+    ================================================== */
 
     #trainingApp {
       display: none;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at 70% 10%, rgba(98,230,111,0.12), transparent 30%),
-        var(--bg);
+      background: var(--bg);
     }
 
-    .training-shell {
+    #trainingApp.active {
+      display: block;
+    }
+
+    .training-app-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(7,16,12,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+    }
+
+    .training-app-nav {
       max-width: 1100px;
       margin: auto;
-    }
-
-    .training-header {
+      padding: 18px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 25px;
+      gap: 15px;
     }
 
-    .training-header h2 {
-      font-size: clamp(30px, 5vw, 55px);
-      margin-top: 5px;
+    .training-brand {
+      font-weight: 900;
     }
 
-    .training-progress {
-      height: 8px;
-      background: var(--surface);
-      border-radius: 99px;
-      overflow: hidden;
-      margin-bottom: 30px;
+    .training-brand span {
+      color: var(--accent);
     }
 
-    .training-progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--accent);
-      transition: width 0.4s ease;
+    .training-xp {
+      color: var(--accent);
+      font-weight: 900;
     }
 
-    .training-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 30px;
+    #trainingScreen {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 24px;
     }
 
-    .training-panel h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
+    /* POSITION / LEVEL / GOAL CARDS */
 
-    .training-panel p {
-      color: var(--muted);
-    }
-
-    .training-options {
+    .selection-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin: 25px 0;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
     }
 
-    .training-option {
-      padding: 18px;
-      text-align: left;
+    .selection-card {
+      padding: 25px;
+      background: var(--surface);
       border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--text);
-      border-radius: 12px;
+      border-radius: 16px;
       cursor: pointer;
       transition: 0.2s ease;
     }
 
-    .training-option:hover {
+    .selection-card:hover {
+      transform: translateY(-5px);
       border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .drill-card {
-      margin-top: 20px;
-      padding: 22px;
       background: var(--surface-2);
+    }
+
+    .selection-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .selection-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* PROGRAM */
+
+    .training-screen {
+      padding: 35px;
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 15px;
+      border-radius: 20px;
     }
 
-    .drill-card h4 {
-      font-size: 21px;
-      margin-bottom: 8px;
-    }
-
-    .drill-meta {
+    .training-meta {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin: 12px 0;
+      gap: 8px;
+      margin: 18px 0;
     }
 
-    .drill-tag {
-      padding: 5px 9px;
-      border-radius: 99px;
-      background: rgba(98,230,111,0.1);
+    .training-tag {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(98,230,111,0.09);
+      border: 1px solid rgba(98,230,111,0.2);
       color: var(--accent);
       font-size: 12px;
       font-weight: 800;
     }
 
-    .cone-diagram {
-      min-height: 230px;
-      margin: 20px 0;
-      border-radius: 14px;
-      background: #07100c;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 70px;
+    .training-screen h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
     }
 
-    .xp-display {
-      color: var(--accent);
-      font-weight: 900;
-      font-size: 18px;
-      margin: 15px 0;
+    /* =========================
+       CONE DRILL VISUAL
+    ========================= */
+
+    .drill-diagram {
+      margin: 30px 0;
     }
+
+    .cone-field {
+      width: 100%;
+      max-width: 650px;
+      height: 300px;
+      margin: auto;
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        ),
+        #0a1710;
+
+      background-size: 40px 40px;
+      border: 1px solid var(--border);
+    }
+
+    .cone {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-bottom: 25px solid #ff8a00;
+      filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+    }
+
+    .cone-1 {
+      left: 15%;
+      top: 65%;
+    }
+
+    .cone-2 {
+      left: 35%;
+      top: 25%;
+    }
+
+    .cone-3 {
+      left: 60%;
+      top: 65%;
+    }
+
+    .cone-4 {
+      left: 80%;
+      top: 25%;
+    }
+
+    .drill-path {
+      position: absolute;
+      left: 17%;
+      top: 45%;
+      width: 67%;
+      height: 2px;
+      background: var(--accent);
+      transform: rotate(-5deg);
+      box-shadow: 0 0 10px rgba(98,230,111,0.5);
+    }
+
+    /* =========================
+       TIMER
+    ========================= */
+
+    .timer {
+      margin: 30px 0;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      background: #07100c;
+      border: 1px solid var(--border);
+    }
+
+    .timer-value {
+      font-size: clamp(55px, 10vw, 90px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       COMPLETION
+    ========================= */
+
+    .session-complete {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .xp-earned {
+      display: inline-block;
+      margin: 25px 0;
+      padding: 15px 25px;
+      border-radius: 999px;
+      background: rgba(98,230,111,0.1);
+      color: var(--accent);
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 900px) {
 
@@ -599,7 +771,6 @@
         grid-template-columns: repeat(4, 1fr);
       }
 
-      .iq-grid,
       .news-grid {
         grid-template-columns: 1fr;
       }
@@ -607,6 +778,11 @@
       .achievement-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .selection-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
     }
 
     @media (max-width: 600px) {
@@ -644,23 +820,40 @@
         grid-template-columns: 1fr;
       }
 
+      .selection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .training-screen {
+        padding: 22px;
+      }
+
+      .training-screen h3 {
+        font-size: 28px;
+      }
+
       .footer-inner {
         flex-direction: column;
       }
 
-      .training-options {
-        grid-template-columns: 1fr;
-      }
-
-      .training-header {
-        align-items: flex-start;
-      }
     }
+
   </style>
 
 </head>
 
+
 <body>
+
+
+<!-- ==================================================
+     MAIN WEBSITE
+================================================== -->
+
+<div id="mainWebsite">
+
+
+  <!-- NAVIGATION -->
 
   <header>
 
@@ -671,24 +864,42 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#train">Train</a></li>
-        <li><a href="#iq">Football IQ</a></li>
-        <li><a href="#positions">Positions</a></li>
-        <li><a href="#news">Football Hub</a></li>
-        <li><a href="#achievements">Achievements</a></li>
+
+        <li>
+          <a href="#train">Train</a>
+        </li>
+
+        <li>
+          <a href="#iq">Football IQ</a>
+        </li>
+
+        <li>
+          <a href="#positions">Positions</a>
+        </li>
+
+        <li>
+          <a href="#news">Football Hub</a>
+        </li>
+
+        <li>
+          <a href="#achievements">Achievements</a>
+        </li>
+
       </ul>
 
       <div class="nav-actions">
 
         <button
           class="btn btn-outline"
-          onclick="showMessage('Login system coming next.')">
+          onclick="showMessage('Login system coming next.')"
+        >
           Login
         </button>
 
         <button
           class="btn btn-primary"
-          onclick="startTraining()">
+          onclick="startTraining()"
+        >
           Start Training
         </button>
 
@@ -699,9 +910,9 @@
   </header>
 
 
-  <!-- MAIN WEBSITE -->
+  <!-- HERO -->
 
-  <main id="mainWebsite">
+  <main>
 
     <section class="hero">
 
@@ -718,22 +929,24 @@
         </h1>
 
         <p>
-          A football development platform built to help players train,
-          understand the game, track their progress and become better
-          footballers.
+          A football development platform built to help players
+          train, understand the game, track their progress and
+          become better footballers.
         </p>
 
         <div class="hero-buttons">
 
           <button
             class="btn btn-primary"
-            onclick="startTraining()">
+            onclick="startTraining()"
+          >
             ⚽ Start Training
           </button>
 
           <button
             class="btn btn-outline"
-            onclick="scrollToSection('iq')">
+            onclick="scrollToSection('iq')"
+          >
             🧠 Explore Football IQ
           </button>
 
@@ -743,6 +956,8 @@
 
     </section>
 
+
+    <!-- FEATURES -->
 
     <section>
 
@@ -764,54 +979,79 @@
 
         </div>
 
+
         <div class="feature-grid">
 
           <div class="card">
             <div class="card-icon">⚽</div>
             <h3>Ball Mastery</h3>
-            <p>Build control, first touch, weak foot ability, dribbling and confidence on the ball.</p>
+            <p>
+              Build control, first touch, weak foot ability,
+              dribbling and confidence on the ball.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">📍</div>
             <h3>Positioning</h3>
-            <p>Learn what your position requires both with and without the ball.</p>
+            <p>
+              Learn what your position requires both with
+              and without the ball.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">🦵</div>
             <h3>Plyometrics</h3>
-            <p>Develop explosiveness, acceleration, agility and football-specific athleticism.</p>
+            <p>
+              Develop explosiveness, acceleration, agility
+              and football-specific athleticism.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">🧠</div>
             <h3>Football IQ</h3>
-            <p>Learn tactics, decision making, formations, transitions and how to read the game.</p>
+            <p>
+              Learn tactics, decision making, formations,
+              transitions and how to read the game.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">📍</div>
             <h3>Cone Drills</h3>
-            <p>Structured cone arrangements with instructions, progressions and difficulty levels.</p>
+            <p>
+              Structured cone arrangements with instructions,
+              progressions and difficulty levels.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">🏃</div>
             <h3>Speed & Agility</h3>
-            <p>Football-specific acceleration, change of direction and movement training.</p>
+            <p>
+              Football-specific acceleration, change of
+              direction and movement training.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">🏆</div>
             <h3>Achievements</h3>
-            <p>Earn XP, unlock badges and build your football development journey.</p>
+            <p>
+              Earn XP, unlock badges and build your football
+              development journey.
+            </p>
           </div>
 
           <div class="card">
             <div class="card-icon">🌍</div>
             <h3>Football Hub</h3>
-            <p>Follow major leagues, transfers, results, statistics and season developments.</p>
+            <p>
+              Follow major leagues, transfers, results,
+              statistics and season developments.
+            </p>
           </div>
 
         </div>
@@ -821,6 +1061,8 @@
     </section>
 
 
+    <!-- TRAINING PREVIEW -->
+
     <section id="train" class="training-section">
 
       <div class="container">
@@ -829,7 +1071,9 @@
 
           <small>Train like a footballer</small>
 
-          <h2>Your training starts here.</h2>
+          <h2>
+            Your training starts here.
+          </h2>
 
           <p>
             Structured sessions designed around the player,
@@ -838,17 +1082,20 @@
 
         </div>
 
+
         <div class="training-grid">
 
           <div class="training-main">
 
-            <small style="color:var(--accent);">
+            <small style="color:var(--accent)">
               SAMPLE SESSION
             </small>
 
-            <h3>Center Back Development</h3>
+            <h3>
+              Center Back Development
+            </h3>
 
-            <p style="color:var(--muted);">
+            <p style="color:var(--muted)">
               Build defensive movement, scanning, passing,
               acceleration and football intelligence.
             </p>
@@ -889,27 +1136,37 @@
 
             <button
               class="btn btn-primary"
-              onclick="startTraining()">
+              onclick="startTraining()"
+            >
               ▶ Start Session
             </button>
 
           </div>
 
+
           <div class="side-stack">
 
             <div class="stat-card">
               <strong>50+</strong>
-              <span>Training categories we can build into the platform</span>
+              <span>
+                Training categories we can build
+                into the platform
+              </span>
             </div>
 
             <div class="stat-card">
               <strong>8</strong>
-              <span>Core football positions</span>
+              <span>
+                Core football positions
+              </span>
             </div>
 
             <div class="stat-card">
               <strong>∞</strong>
-              <span>Possible personalized training pathways</span>
+              <span>
+                Possible personalized
+                training pathways
+              </span>
             </div>
 
           </div>
@@ -921,6 +1178,8 @@
     </section>
 
 
+    <!-- POSITIONS -->
+
     <section id="positions">
 
       <div class="container">
@@ -929,14 +1188,17 @@
 
           <small>Choose your position</small>
 
-          <h2>Train for your role.</h2>
+          <h2>
+            Train for your role.
+          </h2>
 
           <p>
-            Every position has different physical, technical
-            and tactical requirements.
+            Every position has different physical,
+            technical and tactical requirements.
           </p>
 
         </div>
+
 
         <div class="position-grid">
 
@@ -956,6 +1218,8 @@
     </section>
 
 
+    <!-- FOOTBALL IQ -->
+
     <section id="iq" class="training-section">
 
       <div class="container">
@@ -970,20 +1234,21 @@
           </h2>
 
           <p>
-            Learn how the game works and improve your decision
-            making through lessons and match scenarios.
+            Learn how the game works and improve your
+            decision making through lessons and scenarios.
           </p>
 
         </div>
 
-        <div class="iq-grid">
+
+        <div class="feature-grid">
 
           <div class="card">
             <div class="card-icon">📐</div>
             <h3>Tactics</h3>
             <p>
-              Understand pressing, build-up, defensive blocks,
-              transitions and attacking structures.
+              Understand pressing, build-up, defensive
+              blocks, transitions and attacking structures.
             </p>
           </div>
 
@@ -991,8 +1256,8 @@
             <div class="card-icon">🎯</div>
             <h3>Match Scenarios</h3>
             <p>
-              Make decisions in realistic football situations
-              and learn why the correct choice works.
+              Make decisions in realistic football
+              situations and learn why choices work.
             </p>
           </div>
 
@@ -1000,8 +1265,17 @@
             <div class="card-icon">🚩</div>
             <h3>Rules</h3>
             <p>
-              Master everything from offside and fouls to
-              set pieces and match situations.
+              Master offside, fouls, set pieces and
+              match situations.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">👀</div>
+            <h3>Scanning</h3>
+            <p>
+              Learn how players scan their surroundings
+              before receiving and moving the ball.
             </p>
           </div>
 
@@ -1011,6 +1285,8 @@
 
     </section>
 
+
+    <!-- FOOTBALL HUB -->
 
     <section id="news">
 
@@ -1020,57 +1296,95 @@
 
           <small>Football Hub</small>
 
-          <h2>The football world.</h2>
+          <h2>
+            The football world.
+          </h2>
 
           <p>
-            The platform will eventually connect to live football
-            data and news services to keep players updated.
+            The platform will eventually connect to live
+            football data and news services.
           </p>
 
         </div>
 
+
         <div class="news-grid">
 
           <article class="news-card">
-            <div class="news-image">🏆</div>
+
+            <div class="news-image">
+              🏆
+            </div>
 
             <div class="news-content">
-              <small>TOP LEAGUES</small>
-              <h3>League updates</h3>
+
+              <small>
+                TOP LEAGUES
+              </small>
+
+              <h3>
+                League Updates
+              </h3>
 
               <p>
-                Fixtures, results, standings, statistics and
-                important developments.
+                Fixtures, results, standings, statistics
+                and important developments.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="news-card">
-            <div class="news-image">🔄</div>
+
+            <div class="news-image">
+              🔄
+            </div>
 
             <div class="news-content">
-              <small>TRANSFER CENTER</small>
-              <h3>Transfer updates</h3>
+
+              <small>
+                TRANSFER CENTER
+              </small>
+
+              <h3>
+                Transfer Updates
+              </h3>
 
               <p>
                 Follow confirmed transfers, negotiations,
                 interest and major transfer stories.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="news-card">
-            <div class="news-image">📊</div>
+
+            <div class="news-image">
+              📊
+            </div>
 
             <div class="news-content">
-              <small>PLAYER DATA</small>
-              <h3>Player statistics</h3>
+
+              <small>
+                PLAYER DATA
+              </small>
+
+              <h3>
+                Player Statistics
+              </h3>
 
               <p>
-                Compare players and explore football statistics
-                across major competitions.
+                Compare players and explore football
+                statistics across major competitions.
               </p>
+
             </div>
+
           </article>
 
         </div>
@@ -1079,6 +1393,8 @@
 
     </section>
 
+
+    <!-- ACHIEVEMENTS -->
 
     <section id="achievements" class="training-section">
 
@@ -1088,36 +1404,49 @@
 
           <small>Progression system</small>
 
-          <h2>Train. Earn. Level up.</h2>
+          <h2>
+            Train. Earn. Level up.
+          </h2>
 
-          <p>Your football development becomes a journey.</p>
+          <p>
+            Your football development becomes a journey.
+          </p>
 
         </div>
+
 
         <div class="achievement-grid">
 
           <div class="achievement">
             <div class="badge">👣</div>
             <h3>Silent Feet</h3>
-            <p>Complete your first ball mastery challenge.</p>
+            <p>
+              Complete your first ball mastery challenge.
+            </p>
           </div>
 
           <div class="achievement">
             <div class="badge">📍</div>
             <h3>Cone Commander</h3>
-            <p>Complete five cone drills.</p>
+            <p>
+              Complete five cone drills.
+            </p>
           </div>
 
           <div class="achievement">
             <div class="badge">🧠</div>
             <h3>Game Reader</h3>
-            <p>Complete football IQ lessons.</p>
+            <p>
+              Complete football IQ lessons.
+            </p>
           </div>
 
           <div class="achievement">
             <div class="badge">🔥</div>
             <h3>Never Miss</h3>
-            <p>Build a consistent training streak.</p>
+            <p>
+              Build a consistent training streak.
+            </p>
           </div>
 
         </div>
@@ -1127,11 +1456,15 @@
     </section>
 
 
+    <!-- CTA -->
+
     <section class="cta">
 
       <div class="container">
 
-        <h2>Your football journey starts now.</h2>
+        <h2>
+          Your football journey starts now.
+        </h2>
 
         <p>
           Build your skills. Understand the game.
@@ -1140,7 +1473,8 @@
 
         <button
           class="btn btn-primary"
-          onclick="startTraining()">
+          onclick="startTraining()"
+        >
           ⚽ Start Your Journey
         </button>
 
@@ -1151,47 +1485,7 @@
   </main>
 
 
-  <!-- ============================= -->
-  <!-- FOOTBALL LAB TRAINING APP -->
-  <!-- ============================= -->
-
-  <section id="trainingApp">
-
-    <div class="training-shell">
-
-      <div class="training-header">
-
-        <div>
-          <small style="color:var(--accent);font-weight:800;">
-            FOOTBALL LAB TRAINING ENGINE
-          </small>
-
-          <h2>Become a Better Baller</h2>
-        </div>
-
-        <button
-          class="btn btn-outline"
-          onclick="returnHome()">
-          ← Home
-        </button>
-
-      </div>
-
-      <div class="training-progress">
-
-        <div
-          id="trainingProgressBar"
-          class="training-progress-bar">
-        </div>
-
-      </div>
-
-      <div id="trainingScreen"></div>
-
-    </div>
-
-  </section>
-
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1209,12 +1503,134 @@
 
   </footer>
 
+</div>
 
-  <!-- JAVASCRIPT -->
 
-  <script src="js/training.js"></script>
-  <script src="js/achievements.js"></script>
-  <script src="js/app.js"></script>
+<!-- ==================================================
+     TRAINING APPLICATION
+================================================== -->
+
+<div id="trainingApp">
+
+  <div class="training-app-header">
+
+    <div class="training-app-nav">
+
+      <div class="training-brand">
+        ⚽ THE <span>FOOTBALL LAB</span>
+      </div>
+
+      <div>
+        <span class="training-xp">
+          XP: <span id="trainingXP">0</span>
+        </span>
+
+        <button
+          class="btn btn-outline"
+          onclick="returnHome()"
+          style="margin-left:10px"
+        >
+          ← Home
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div id="trainingScreen">
+
+    <div class="section-heading">
+
+      <small>
+        Training Lab
+      </small>
+
+      <h2>
+        Build your session.
+      </h2>
+
+      <p>
+        Choose your position to begin your
+        personalized football development program.
+      </p>
+
+      <br>
+
+      <button
+        class="btn btn-primary"
+        onclick="showTrainingPositionSelection()"
+      >
+        Start
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="js/training.js"></script>
+
+<script src="js/achievements.js"></script>
+
+<script src="js/app.js"></script>
+
+
+<script>
+
+  function showMessage(message) {
+    alert(message);
+  }
+
+
+  function updateTrainingXP() {
+
+    const xpElement =
+      document.getElementById("trainingXP");
+
+    if (
+      xpElement &&
+      typeof achievementSystem !== "undefined"
+    ) {
+
+      xpElement.textContent =
+        achievementSystem.getXP();
+
+    }
+
+  }
+
+
+  const originalAddXP =
+    achievementSystem.addXP.bind(
+      achievementSystem
+    );
+
+
+  achievementSystem.addXP =
+    function(amount) {
+
+      const result =
+        originalAddXP(amount);
+
+      updateTrainingXP();
+
+      return result;
+
+    };
+
+
+  updateTrainingXP();
+
+</script>
+
 
 </body>
 </html>
