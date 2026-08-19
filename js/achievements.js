@@ -6,7 +6,8 @@ const achievementSystem = {
       id: "first-session",
       name: "First Touch",
       icon: "⚽",
-      description: "Complete your first training session.",
+      description:
+        "Complete your first training session.",
       xp: 50
     },
 
@@ -14,7 +15,8 @@ const achievementSystem = {
       id: "cone-commander",
       name: "Cone Commander",
       icon: "📍",
-      description: "Complete 5 cone drills.",
+      description:
+        "Complete 5 cone drills.",
       xp: 100
     },
 
@@ -22,7 +24,8 @@ const achievementSystem = {
       id: "silent-feet",
       name: "Silent Feet",
       icon: "👣",
-      description: "Complete 10 ball mastery drills.",
+      description:
+        "Complete 10 ball mastery drills.",
       xp: 150
     },
 
@@ -30,7 +33,8 @@ const achievementSystem = {
       id: "game-reader",
       name: "Game Reader",
       icon: "🧠",
-      description: "Complete 10 Football IQ lessons.",
+      description:
+        "Complete 10 Football IQ lessons.",
       xp: 200
     },
 
@@ -38,7 +42,8 @@ const achievementSystem = {
       id: "iron-legs",
       name: "Iron Legs",
       icon: "🦵",
-      description: "Complete 10 plyometric sessions.",
+      description:
+        "Complete 10 plyometric sessions.",
       xp: 200
     },
 
@@ -46,7 +51,8 @@ const achievementSystem = {
       id: "never-miss",
       name: "Never Miss",
       icon: "🔥",
-      description: "Maintain a 30-day training streak.",
+      description:
+        "Maintain a 30-day training streak.",
       xp: 500
     },
 
@@ -54,22 +60,32 @@ const achievementSystem = {
       id: "complete-footballer",
       name: "Complete Footballer",
       icon: "👑",
-      description: "Complete training across every major skill category.",
+      description:
+        "Train across every major football skill category.",
       xp: 1000
     }
 
   ],
 
+
   getXP() {
+
     return Number(
-      localStorage.getItem("footballLabXP")
+      localStorage.getItem(
+        "footballLabXP"
+      )
     ) || 0;
+
   },
+
 
   addXP(amount) {
 
-    const currentXP = this.getXP();
-    const newXP = currentXP + amount;
+    const currentXP =
+      this.getXP();
+
+    const newXP =
+      currentXP + amount;
 
     localStorage.setItem(
       "footballLabXP",
@@ -77,43 +93,65 @@ const achievementSystem = {
     );
 
     return newXP;
+
   },
+
 
   getCompleted() {
 
     return JSON.parse(
-      localStorage.getItem("footballLabAchievements")
+      localStorage.getItem(
+        "footballLabAchievements"
+      )
     ) || [];
 
   },
 
+
   unlock(id) {
 
-    const completed = this.getCompleted();
+    const completed =
+      this.getCompleted();
 
-    if (completed.includes(id)) {
+
+    if (
+      completed.includes(id)
+    ) {
+
       return false;
+
     }
+
 
     const achievement =
       this.achievements.find(
         item => item.id === id
       );
 
+
     if (!achievement) {
+
       return false;
+
     }
 
+
     completed.push(id);
+
 
     localStorage.setItem(
       "footballLabAchievements",
       JSON.stringify(completed)
     );
 
-    this.addXP(achievement.xp);
+
+    this.addXP(
+      achievement.xp
+    );
+
 
     return achievement;
+
   }
 
 };
